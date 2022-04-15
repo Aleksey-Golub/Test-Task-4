@@ -71,7 +71,7 @@ public class ClientsController : MonoBehaviour, IUpdatable
     {
         for (int j = 0; j < _allClients.Count; j++)
         {
-            if (_allClients[j].IsServed == false)
+            if (_allClients[j].Order.IsServed == false)
                 break;
             else if (j == _allClients.Count - 1)
                 AllCliensAreServed?.Invoke();

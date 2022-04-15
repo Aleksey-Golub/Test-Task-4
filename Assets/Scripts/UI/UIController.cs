@@ -33,9 +33,9 @@ public class UIController : MonoBehaviour
     public void UpdateBoosterButton(bool isUsable)
     {
         if (isUsable)
-            _boosterButton.Show();
+            _boosterButton.Activate();
         else
-            _boosterButton.Hide();
+            _boosterButton.Deactivate();
     }
 
     public void UpdateClientCounter(int waitingToEnter, int total)

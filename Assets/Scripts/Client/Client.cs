@@ -1,25 +1,24 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Client : MonoBehaviour, IUpdatable
 {
     [SerializeField] private ClientView _view;
-    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _movementTime = 3.5f;
     
-    private List<MealType> _order = new List<MealType>();
+    private float _speed;
     private OrderPoint _orderPoint;
     private Transform _endPoint;
     private ClientState _state;
 
-    public bool IsServed => _order.Count == 0;
+    public Order Order { get; private set; }
     public event Action<Client> OrderPointReached;
     public event Action<Client, OrderPoint> OrderCompleted;
 
     public void Init(OrderData order, MealFactory mealFactory)
     {
-        _order.AddRange(order.Meals);
-        _view.Init(_order, mealFactory);
+        Order = new Order(order.Meals);
+        _view.Init(Order.Meals, mealFactory);
 
         _state = ClientState.Spawned;
     }
@@ -39,35 +38,31 @@ public class Client : MonoBehaviour, IUpdatable
                 }
                 break;
             case ClientState.WaitingForOrder:
-                if (_order.Count == 0)
+                if (Order.IsServed)
                     HandleCompletingOrder();
                 break;
             case ClientState.Waning:
                 MoveToEndPoint(deltaTime);
                 break;
             default:
-                break;
+                throw new NotImplementedException();
         }
     }
 
     public void CompleteOrder()
     {
-        _order.Clear();
-
+        Order.Complete();
         HandleCompletingOrder();
     }
 
     public bool TryReceive(MealType type)
     {
-        for (int i = 0; i < _order.Count; i++)
+        if (Order.TryReceive(type))
         {
-            if (_order[i] == type)
-            {
-                _order.Remove(_order[i]);
-                _view.UpdateOrder(_order);
-                return true;
-            }
+            _view.UpdateOrder(Order.Meals);
+            return true;
         }
+
         return false;
     }
 
@@ -75,7 +70,8 @@ public class Client : MonoBehaviour, IUpdatable
     {
         _orderPoint = point;
         _endPoint = endPoint;
-        
+        _speed = (point.Position - transform.position).magnitude / _movementTime;
+
         _state = ClientState.Arraving;
     }
 

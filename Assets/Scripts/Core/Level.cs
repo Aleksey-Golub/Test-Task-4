@@ -90,6 +90,9 @@ public class Level : MonoBehaviour
 
     private void OnUseBoosterButtonClicked()
     {
+        if (_pauseManager.IsPaused)
+            return;
+
         if (_clientsController.CompleteFirstInQueueOrder())
         {
             _levelData.BoosterCount--;

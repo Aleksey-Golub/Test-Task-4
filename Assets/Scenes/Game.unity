@@ -881,7 +881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -61.919983}
+  m_AnchoredPosition: {x: 0, y: -61.91992}
   m_SizeDelta: {x: 690.67, y: 123.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966800431
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   _levelData:
     Name: Level_2
     Timer: 150
-    BoosterCount: 1
+    BoosterCount: 3
     Orders:
     - Meals: 000000000300000003000000
     - Meals: 00000000
@@ -1824,7 +1824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -146.89996, y: -61.919983}
+  m_AnchoredPosition: {x: -146.8999, y: -61.91992}
   m_SizeDelta: {x: 293.8, y: 123.84}
   m_Pivot: {x: 0.49999994, y: 0.5000003}
 --- !u!114 &1751210271

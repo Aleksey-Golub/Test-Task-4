@@ -3,6 +3,7 @@ using UnityEngine;
 public class MealSourceView : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
+
     private MealFactory _mealFactory;
 
     public void Init(MealFactory mealFactory)
@@ -14,5 +15,4 @@ public class MealSourceView : MonoBehaviour
     {
         _spriteRenderer.sprite = _mealFactory.GetSprite(type);
     }
-
 }

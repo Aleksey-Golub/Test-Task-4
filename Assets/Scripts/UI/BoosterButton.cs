@@ -13,12 +13,12 @@ public class BoosterButton : BaseUIElement
         _useBoosterButton.onClick.AddListener(OnUseBoosterButtonButtonClicked);
     }
 
-    public override void Show()
+    public void Activate()
     {
         _useBoosterButton.interactable = true;
     }
 
-    public override void Hide()
+    public void Deactivate()
     {
         _useBoosterButton.interactable = false;
     }
