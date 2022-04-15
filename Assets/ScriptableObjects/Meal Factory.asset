@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bfe1fc0ce5cb54d828f95372768d14, type: 3}
+  m_Name: Meal Factory
+  m_EditorClassIdentifier: 
+  _orangeJuice: {fileID: 813694914455013815, guid: 9b3a3aa99e5950d4e8d05184677f3fe6, type: 3}
+  _pancakes: {fileID: 4875669685974688951, guid: 9b3a3aa99e5950d4e8d05184677f3fe6, type: 3}
+  _schnitzel: {fileID: -4941734082012554490, guid: 9b3a3aa99e5950d4e8d05184677f3fe6, type: 3}
+  _banana: {fileID: 4103532056910830042, guid: 9b3a3aa99e5950d4e8d05184677f3fe6, type: 3}
